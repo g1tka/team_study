@@ -1,0 +1,37 @@
+<div class="container mt-5 pt-4">
+  <div class="row">
+    <div class="col-2">
+      <%= render '/public/items/genre', genres: @genres %>
+    </div>
+
+    <div class="col-10 pl-5">
+
+      <div class="row">
+          <li class="mr-2 list-unstyled">
+            <h2><strong><%= @genre.name %>一覧</strong></h2>
+          </li>
+          <li class="d-flex align-items-end list-unstyled">
+            <h5>(全<%= @item_count %>件)</h5>
+          </li>
+      </div>
+
+      <div class="row">
+        <% @items.each do |item| %>
+          <div class="col my-3">
+            <%= link_to item_path(item), class: "text-decoration-none text-dark" do %>
+              <%= image_tag item.get_image %>
+              <br>
+              <b><%= item.name %></b>
+              <p>￥<%= number_to_currency(item.price, unit: '') %></p>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="row mt-4 justify-content-center">
+        <%= paginate @genre_items %>
+      </div>
+
+    </div>
+  </div>
+</div>

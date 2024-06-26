@@ -1,0 +1,43 @@
+<div class="container">
+
+  <div class="row mt-3">
+    <div class="text-bg-light offset-2">会員一覧</div>
+  </div>
+
+  <div class="row justify-content-center">
+    <table class='col-10 table table-hover table-inverse'>
+      <thead>
+        <tr  class="table-active">
+          <th>会員ID</th>
+          <th>氏名</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @customers.each do |customer| %>
+          <tr>
+            <td><%= customer.id %></td>
+            <td>
+              <%= link_to admin_customer_path(customer.id) do %>
+                <%= customer.last_name %><%=customer.first_name %>
+              <% end %>
+            </td>
+            <td><%= customer.email %></td>
+            <td>
+              <div class="col-sm-12">
+                <% if customer.is_active %>
+                  <p class="text-success"><strong>有効</strong></p>
+                <% else %>
+                  <p class="text-secondary"><strong>退会</strong></p>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @customers %>
+  </div>
+
+</div>

@@ -1,0 +1,57 @@
+<!--商品一覧ページから/商品新規登録後//admin/items/:idでこのページを表示します-->
+<div class="container">
+
+  <div class="row mt-4">
+    <div class="col-1"></div>
+    <div class="text-bg-light"><h4 style="background-color: #E6E6E6;">　商品詳細　</h4></div>
+  </div>
+
+  <div class="row mt-5">
+
+    <div class="col-3 mx-2">
+      <%= image_tag @item.get_image, size: "200x160" %>
+    </div>
+
+    <div class="col-8 mx-2">
+      <div class="form-group row mb-3">
+        <div class="col-3">商品名</div>
+        <div class="col-9"><%= @item.name %></div>
+      </div>
+      <div class="form-group row my-3">
+        <div class="col-3">商品説明</div>
+        <div class="col-9"><h5><%= @item.introduction %></h5></div>
+      </div>
+      <div class="form-group row my-3">
+        <div class="col-3">ジャンル</div>
+        <div class="col-9"><%= @item.genre.name %></div>
+      </div>
+      <div class="form-group row my-3">
+        <!--消費税を求めるmethodをItemモデルに記述しています。-->
+        <div class="col-3">税込価格<br>
+        (税抜価格)</div>
+        <div class="col-9 d-flex align-items-center"><h4>
+          <%= number_to_currency(@item.with_tax_price, unit: "", precision: 0) %>
+          (<%= number_to_currency(@item.price, unit: "", precision: 0) %>)
+          <span style="font-size: 0.8em;">円</span>
+        </h4></div>
+      </div>
+      <div class="form-group row my-2">
+        <div class="col-3">販売ステータス</div>
+        <div class="col-9 mb-3">
+          <% if @item.is_active %>
+            <h5 class="text-success"><strong>販売中</strong></h5>
+          <% else %>
+            <p class="text-secondary"><strong>販売停止中</strong></p>
+          <% end %>
+        </div>
+      </div>
+      <div class="form-group row my-2">
+        <div class="col offset-2">
+          <%= link_to "編集する", edit_admin_item_path(params[:id]), class: "btn btn-success" %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

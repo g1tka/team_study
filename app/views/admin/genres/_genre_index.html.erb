@@ -1,0 +1,10 @@
+<% genres.each do |genre| %>
+  <tr>
+    <td class="col-7">
+      <%= genre.name %>
+    </td>
+    <td class="col-5 pl-5">
+      <%= link_to "  編集する ", edit_admin_genre_path(genre.id), class: "btn btn-md btn-success" %>
+    </td>
+  </tr>
+<% end %>

@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row m-5">
+      <h4 style="background-color: #E6E6E6;">　ジャンル編集　</h4>
+  </div>
+    <%= form_with model: @genre, url: admin_genre_path, class: "genre_edit_form", local:true do |f| %>
+      <div class="row mb-5 d-flex align-items-center">
+        <div class="mx-4"><%= f.label :ジャンル名 %></div>
+        <div class="mx-5"><%= f.text_field :name, class: "genre-edit-field" %></div>
+        <div class="mx-4">
+          <%= f.submit "変更を保存", class: "btn btn-success genre_edit_btn" %>
+        </div>
+    <% end %>
+  </div>
+  </div>
+</div>

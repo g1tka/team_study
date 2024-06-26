@@ -1,0 +1,12 @@
+<div class="genres-sidebar">
+  <table style="border: 1px solid black; width: 100%; "　>
+    <th class="border-bottom border-dark">ジャンル検索</th>
+    <% genres.each do |genre| %>
+      <tr>
+        <td style="padding: 10px;", class="genre-cell">
+          <%= link_to genre.name, genre_path(genre), class: "text-decoration-none text-dark" %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

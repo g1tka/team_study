@@ -1,0 +1,9 @@
+@use '~bootstrap/scss/bootstrap';
+
+.genre-cell {
+  padding: 10px;
+}
+
+.genre-cell:hover {
+  background-color: #f0f0f0; /* ホバー時の背景色 */
+}

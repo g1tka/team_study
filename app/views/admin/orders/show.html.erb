@@ -1,0 +1,96 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+    <h2>注文履歴詳細</h2>
+
+
+      <div class="row">
+        <div class="col-md-7">
+          <table class="table">
+            <tbody>
+              <tr>
+                <th>購入者</th>
+                <td>
+                  <%= link_to admin_customer_path(@order.customer) do %>
+                    <%= @order.customer.last_name %>
+                    <%= @order.customer.first_name %>
+                  <% end %>
+                </td>
+              </tr>
+
+              <tr>
+                <th>配送先</th>
+                <td><%= @order.address %></td>
+              </tr>
+
+              <tr>
+                <th>支払方法</th>
+                <td><%= @order.payment_method_i18n %></td>
+              </tr>
+
+              <tr>
+                <th>注文ステータス</th>
+                <td>
+                  <%= form_for(@order, url: admin_order_path(@order)) do |f| %>
+                    <%= f.select :status, Order.statuses_i18n.invert %>
+                    <%= f.submit "更新", class: "btn btn-success" %>
+                  <% end %>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>商品名</th>
+                  <th>単価（税込）</th>
+                  <th>数量</th>
+                  <th>小計</th>
+                  <th colspan="2">製作ステータス</th>
+                </tr>
+              </thead>
+            <tbody>
+    <% @order_details.each do |order_detail| %>
+      <tr>
+        <td><%= order_detail.item.name %></td>
+        <td><%= number_to_currency(order_detail.price) %></td>
+        <td><%= order_detail.amount %></td>
+        <td><%= number_to_currency(order_detail.price * order_detail.amount) %></td>
+        <td colspan="2">
+          <%= form_for(order_detail, url: admin_order_detail_path(order_detail)) do |f|  %>
+            <%= f.select :making_status, OrderDetail.making_statuses_i18n.invert %>
+            <%= f.submit '更新', class: "btn btn-success" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+        </div>
+
+        <div class="col-md-5">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>商品合計</td>
+                <td><%= number_to_currency(@order.total_payment - @order.shipping_cost) %></td>
+              </tr>
+
+              <tr>
+                <td>送料</td>
+                <td><%= number_to_currency(@order.shipping_cost) %></td>
+              </tr>
+
+              <tr>
+                <td>請求合計金額</td>
+                <td><%= number_to_currency(@order.total_payment) %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

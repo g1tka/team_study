@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <h3><%= @customer.last_name %><%= @customer.first_name %></h3>
+    <h4>さんの</h4>
+    <h3>会員情報編集</h3>
+  </div>
+  <div class="row mt-3">
+    <%= form_with model: @customer, url: admin_customer_path(@customer),method: :patch, local: true do |f| %>
+      <div class="row">
+        <div class="col-5">会員ID</div>
+        <div class="col-3"><%= @customer.id %></div>
+      </div>
+      
+      <div class="row mt-2">
+        <div class="col-4">氏名</div>
+        <div class="col-4"><%= f.text_field :last_name, autofocus: true, class: "form-control" %></div>
+        <div class="col-4"><%= f.text_field :first_name, class: "form-control"  %></div>
+      </div>
+            
+      <div class="row mt-2">
+        <div class="col-4">フリガナ</div>
+        <div class="col-4"><%= f.text_field :last_name_kana, pattern: "[ァ-ヶー－]+",class: "form-control" %></div>
+        <div class="col-4"><%= f.text_field :first_name_kana, pattern: "[ァ-ヶー－]+",class: "form-control" %></div>
+      </div>
+          
+      <div class="row mt-2">
+        <div class="col-4">郵便番号</div>
+        <div class="col-4"><%= f.text_field :post_code, pattern: '\d{3}\d{4}',class: "form-control" %></div>  
+      </div>
+          
+      <div class="row mt-2">
+        <div class="col-4">住所</div>
+        <div class="col-8"><%= f.text_field :address, pattern: '^[\p{Han}\w\s]+$',class: "form-control" %></div>
+      </div>
+          
+      <div class="row mt-2">
+        <div class="col-4">電話番号</div>
+        <div class="col-4"><%= f.text_field :telephone_number, pattern: '\d{10,11}',class: "form-control" %></div>
+      </div>
+              
+      <div class="row mt-2">
+        <div class="col-4">メールアドレス</div>
+        <div class="col-4"><%= f.email_field :email,class: "form-control" %></div>  
+      </div>
+        
+      <div class="row mt-2">
+        <div class="col-4">会員ステータス</div>
+        <div class="col-4">
+          <%= f.radio_button :is_active, true %>
+          <%= f.label :is_active, "有効" %>
+          <%= f.radio_button :is_active, false %>
+          <%= f.label :is_active, "退会" %>
+        </div>
+      </div>
+        
+      <div class="actions text-center">
+        <div class="row mt-4">
+          <div class="col-3 offset-4"><%= f.submit "変更を保存", class: "btn btn-lg btn-success" %></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

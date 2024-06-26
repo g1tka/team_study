@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-3 offset-1"><h5>注文履歴詳細</h5></div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-5">
+      <strong>注文情報</strong><br/>
+      <table class="table table-bordered mt-2">
+        <tbody>
+          <tr>
+            <td>注文日</td>
+            <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+          </tr>
+          <tr>
+            <td>配送先</td>
+            <td><%= @order.address_display %></td>
+          </tr>
+          <tr>
+            <td>支払い方法</td>
+            <td><%= @order.payment_method_i18n %></td>
+          </tr>
+          <tr>
+            <td>ステータス</td>
+            <td><%= @order.status_i18n %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-3">
+      <strong>請求合計</strong><br/>
+      <table class="table table-bordered mt-2">
+        <tr>
+          <th>商品合計</th>
+          <td><%= @order.total_payment %></td>
+        </tr>
+          <th>配送料</th>
+          <td><%= @order.shipping_cost %></td>
+        </tr>
+        <tr>
+          <th><strong>ご請求額</strong></th>
+          <td><%= @order.total_payment+@order.shipping_cost %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-8">
+    <strong>注文内容</strong><br/>
+      <table class="table table-bordered mt-2">
+        <thead>
+          <tr>
+            <th>商品</th>
+            <th>単価（税込）</th>
+            <th>個数</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @order.order_details.each do |order_detail| %>
+          <tr>
+            <td><%= order_detail.item.name %></td>
+            <td><%= order_detail.item.price %></td>
+            <td><%= order_detail.amount %></td>
+            <td><%= order_detail.subtotal %></td>
+            <!--このsubtotalmethodはorder_detailモデルで定義しています。-->
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

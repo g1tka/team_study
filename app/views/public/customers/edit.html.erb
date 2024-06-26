@@ -1,0 +1,45 @@
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-3 offset-md-1" style="font-size: 24px;">会員情報編集</div>
+  </div>
+  <p id="notice"></p>
+  <%= form_with model: @customer, url: customers_information_path, local: true, method: :patch do |f| %>
+    <div class="row form-group">
+      <div class="col-3">氏名</div>
+      <div class="col-3"><%= f.text_field :last_name %></div>
+      <div class="col-3"><%= f.text_field :first_name %></div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-3">フリガナ</div>
+      <div class="col-3"><%= f.text_field :last_name_kana, pattern: "[ァ-ヶー－]+" %></div>
+      <div class="col-3"><%= f.text_field :first_name_kana, pattern: "[ァ-ヶー－]+" %></div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-3"><%= f.label :post_code, "郵便番号" %></div>
+      <div class="col-3"><%= f.text_field :post_code, pattern: '\d{3}\d{4}' %></div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-3"><%= f.label :address, "住所" %></div>
+      <div class="col-6"><%= f.text_field :address, pattern: '^[\p{Han}\w\s]+$' %></div>
+    </div>
+
+    <div class="row">
+      <div class="col-3"><%= f.label :telephone_number, "電話番号" %></div>
+      <div class="col-3"><%= f.text_field :telephone_number, pattern: '\d{10,11}' %></div>
+    </div>
+
+    <div class="row">
+      <div class="col-3"><%= f.label :email ,"メールアドレス" %></div>
+      <div class="col-6"><%= f.email_field :email, autocomplete: "email" %></div>
+    </div>
+
+    <div class="row">
+      <div class="col-6 text-center"><%= f.submit "編集内容を保存", class: "btn btn-md btn-success" %></div>
+      <div class="col-3 text-center"><%= link_to "退会する", unsubscribe_customers_path, class: "btn btn-danger" %></div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row mt-3">
+    <%= @customer.last_name %><%= @customer.first_name %>さんの会員詳細
+  </div>
+
+  <div class="row justify-content-center form-group mt-3 ">
+    <div class="col-3">会員ID</div>
+    <div class="col-6"><%= @customer.id %></div>
+  </div>
+  <div class="row justify-content-center form-group mt-3 ">
+    <div class="col-3">氏名</div>
+    <div class="col-6"><%= @customer.last_name %>&emsp;<%= @customer.first_name %></div>
+  </div>
+  <div class="row justify-content-center form-group mt-3 ">
+    <div class="col-3">フリガナ</div>
+    <div class="col-6"><%= @customer.last_name_kana %>&emsp;<%= @customer.first_name_kana %></div>
+  </div>
+  <div class="row justify-content-center form-group mt-3 ">
+    <div class="col-3">郵便番号</div>
+    <div class="col-6"><%= @customer.post_code.gsub("-","") %></div>
+  </div>
+  <div class="row justify-content-center form-group mt-3 ">
+    <div class="col-3">住所</div>
+    <div class="col-6"><%= @customer.address %></div>
+  </div>
+  <div class="row justify-content-center form-group mt-3 ">
+    <div class="col-3">電話番号</div>
+    <div class="col-6"><%= @customer.telephone_number %></div>
+  </div>
+  <div class="row justify-content-center form-group mt-3 ">
+    <div class="col-3">メールアドレス</div>
+    <div class="col-6"><%= @customer.email %></div>
+  </div>
+  <div class="row justify-content-center form-group mt-3 ">
+    <div class="col-3">会員ステータス</div>
+    <div class="col-6">
+      <% if @customer.is_active %>
+        <p class="text-success"><strong>有効</strong></p>
+      <% else %>
+        <p class="text-secondary"><strong>退会</strong></p>
+      <% end %>
+    </div>
+  </div>
+    <div class="row justify-content-center form-group mt-3 ">
+    <div class="col-2 offset-3">
+      <%= link_to "編集する", edit_admin_customer_path(params[:id]), class: "btn btn-success" %>
+    </div>
+    <div class="col offset-2">
+      <%= link_to "注文履歴一覧を見る", admin_path, class: "btn btn-info" %>
+    </div>
+  </div>
+</div>

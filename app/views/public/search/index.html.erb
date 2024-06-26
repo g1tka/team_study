@@ -1,0 +1,35 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-2">
+      <%= render '/public/items/genre', genres: @genres_all %>　<!--genre検索欄 -->
+    </div>
+
+   <div class="col-10 pl-5">
+
+     <div class="row">
+        <li class="mr-2 list-unstyled">
+          <h2>検索結果</h2>
+        </li>
+        <li class="d-flex align-items-end list-unstyled">
+          <h5>(全<%= @item_count %>件)</h5>
+        </li>
+      </div>
+      <div class="row">
+      <% if @items.present? %>
+          <% @items.each do |item| %>
+            <div class="col my-3">
+              <%= link_to item_path(item), class: "text-decoration-none text-dark" do %>
+                <%= image_tag item.get_image %>
+                <br>
+                <b><%= item.name %></b>
+                <p>￥<%= number_to_currency(item.price, unit: '') %></p>
+              <% end %>
+            </div>
+          <% end %>
+      <% else %>
+        <p>該当する商品が見つかりませんでした。</p>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

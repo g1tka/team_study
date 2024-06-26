@@ -1,0 +1,57 @@
+<div class="container">
+
+  <div class="row mt-3">
+    <div class="offset-2 col-8">商品一覧</div>
+    <div>
+      <%= link_to new_admin_item_path, class: "btn btn-secondary rounded-circle" do %>
+        +
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+
+    <table class='col-10 table table-hover table-borderless border-bottom'>
+      <thead>
+        <tr class="table-active">
+          <th>商品ID</th>
+          <th>商品名</th>
+          <th>税抜価格</th>
+          <th>ジャンル</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td><%= item.id %></td>
+            <td>
+              <!--商品詳細ページのルーティングは→ admin_item GET /admin/items/:id(.:format)      admin/items#show-->
+              <%= link_to admin_item_path(item.id) do %>
+                <p style="color: black; text-decoration: underline;">
+                  <%= item.name %>
+                </p>
+              <% end %>
+            </td>
+            <td><%= number_to_currency(item.price, unit: "", precision: 0) %></td>
+            <td><%= item.genre.name %></td>
+            <td>
+              <div class="col-sm-12">
+                <% if item.is_active %>
+                  <p class="text-success"><strong>販売中</strong></p>
+                <% else %>
+                  <p class="text-secondary"><strong>販売停止中</strong></p>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+    <div class="row justify-content-center">
+      <%= paginate @items %>
+    </div>
+
+</div>

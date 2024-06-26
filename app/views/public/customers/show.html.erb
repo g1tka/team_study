@@ -1,0 +1,66 @@
+<p id="notice"></p>
+<div class="container">
+  <div class="row">
+    <div class="col-2 offset-md-2" style="font-size: 24px;">マイページ</div>
+  </div>
+  <p id="notice"></p>
+    <div class="actions text-center">
+      <!--f.submitでボタン設定していたのをlink_toに直した-->
+      <!--直した理由 link_toはただ表示させるときに使う f.submitは更新や何か変更点がでるときに使う-->
+
+      <div class="row">
+        <div class="col-1">登録情報</div>
+        <div class="col-2"><%= link_to "編集する", customers_information_edit_path, class: "btn btn-lg btn-success", style: "font-size: 1rem;"%></div>
+      </div>
+
+      <p id="notice"></p>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-8">
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <th style="text-align: left;">氏名</th>
+                  <td style="text-align: left;"><%= @customer.last_name %> <%= @customer.first_name %></td>
+                </tr>
+                <tr>
+                  <th style="text-align: left;">カナ</th>
+                  <td style="text-align: left;"><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></td>
+                </tr>
+                <tr>
+                  <th style="text-align: left;">郵便番号</th>
+                  <td style="text-align: left;"><%= @customer.post_code %></td>
+                </tr>
+                <tr>
+                  <th style="text-align: left;">住所</th>
+                  <td style="text-align: left;"><%= @customer.address %></td>
+                </tr>
+                <tr>
+                  <th style="text-align: left;">電話番号</th>
+                  <td style="text-align: left;"><%= @customer.telephone_number %></td>
+                </tr>
+                <tr>
+                  <th style="text-align: left;">メールアドレス</th>
+                  <td style="text-align: left;"><%= @customer.email %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <p id="notice"></p>
+      <div class="row">
+        <div class="col-1">配送先</div>
+        <div class="col-2"><%= link_to "一覧を見る", addresses_path, class: "btn btn-primary btn-lg", style: "font-size: 1rem;" %></div>
+      </div>
+
+      <p id="notice"></p>
+      <div class="row">
+        <div class="col-1">注文履歴</div>
+        <div class="col-2"><%= link_to "一覧を見る", orders_path, class: "btn btn-primary btn-lg", style: "font-size: 1rem;" %></div>
+      </div>
+
+    </div>
+    </div>

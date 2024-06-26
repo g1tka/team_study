@@ -1,0 +1,13 @@
+.my-page {
+  font-weight: bold;
+  /* その他のスタイルも必要に応じて追加 */
+}
+
+.col-1 {
+    font-weight: bold;
+}
+
+.table th {
+    background-color: #f2f2f2; /* 背景色を灰色に設定 */
+    color: #666666; /* 文字色を灰色に設定 */
+}

@@ -1,0 +1,18 @@
+<div class="container mt-5">
+  <h2 style="font-size: 1.7em; text-align: center;"><strong>
+    本当に退会しますか？
+  </strong></h2></center>
+  <h3 class="mt-4" style="text-align: center;">
+    退会すると、会員登録情報や<br>
+          これまでの購入履歴が閲覧できなくなります。<br>
+          退会する場合は、「退会する」をクリックしてください。
+  </h3>
+  <div class="row mt-5 d-flex justify-content-center">
+    <div class="col-auto">
+      <%= link_to '退会しない', my_page_customers_path(@customer), class: "glyphicon glyphicon-home btn btn-primary btn-lg" %>
+    </div>
+    <div class="col-auto">
+       <%= link_to "退会する", withdraw_customers_path(@customer), method: :patch, data: { confirm: "本当に退会してもよろしいですか？" }, class: "btn btn-danger  btn-lg" %>
+    </div>
+  </div>
+</div>

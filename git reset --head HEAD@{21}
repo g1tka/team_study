@@ -1,0 +1,22 @@
+[33m88c92a7[m[33m ([m[1;36mHEAD -> [m[1;32mgenres[m[33m, [m[1;31morigin/develop[m[33m, [m[1;32mdevelop[m[33m)[m HEAD@{0}: checkout: moving from develop to genres
+[33m88c92a7[m[33m ([m[1;36mHEAD -> [m[1;32mgenres[m[33m, [m[1;31morigin/develop[m[33m, [m[1;32mdevelop[m[33m)[m HEAD@{1}: pull origin develop: Fast-forward
+[33mffadb4d[m HEAD@{2}: checkout: moving from xxx to develop
+[33m8109fbd[m[33m ([m[1;32mxxx[m[33m)[m HEAD@{3}: pull origin develop: Fast-forward
+[33mc25921e[m[33m ([m[1;31morigin/xxx[m[33m)[m HEAD@{4}: commit: xxx
+[33mffadb4d[m HEAD@{5}: checkout: moving from develop to xxx
+[33mffadb4d[m HEAD@{6}: checkout: moving from develop to develop
+[33mffadb4d[m HEAD@{7}: checkout: moving from develop to develop
+[33mffadb4d[m HEAD@{8}: checkout: moving from develop to develop
+[33mffadb4d[m HEAD@{9}: pull origin develop: Fast-forward
+[33m1342094[m[33m ([m[1;32mBootstrap[m[33m)[m HEAD@{10}: pull origin develop: Fast-forward
+[33mc5a471e[m HEAD@{11}: checkout: moving from Bootstrap to develop
+[33m1342094[m[33m ([m[1;32mBootstrap[m[33m)[m HEAD@{12}: pull origin develop: Fast-forward
+[33mcc0aaeb[m[33m ([m[1;31morigin/Bootstrap[m[33m)[m HEAD@{13}: commit: Add Device
+[33mc5a471e[m HEAD@{14}: checkout: moving from develop to Bootstrap
+[33mc5a471e[m HEAD@{15}: commit: first commit
+[33m841f5ca[m[33m ([m[1;32madd-Bootstrap[m[33m)[m HEAD@{16}: pull origin develop: Fast-forward
+[33me38077b[m[33m ([m[1;32mmain[m[33m)[m HEAD@{17}: checkout: moving from develop to develop
+[33me38077b[m[33m ([m[1;32mmain[m[33m)[m HEAD@{18}: checkout: moving from develop to develop
+[33me38077b[m[33m ([m[1;32mmain[m[33m)[m HEAD@{19}: checkout: moving from main to develop
+[33me38077b[m[33m ([m[1;32mmain[m[33m)[m HEAD@{20}: pull origin develop: Fast-forward
+[33mce21e27[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{21}: clone: from github.com:B-DO-OUR-BEST/naganocake.git

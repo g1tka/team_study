@@ -1,0 +1,25 @@
+<li class="mr-4 list-unstyled">
+  <%= link_to admin_items_path, class: "btn btn-outline-secondary" do %>
+    商品一覧
+  <% end %>
+</li>
+<li class="mr-4 list-unstyled">
+  <%= link_to admin_customers_path, class: "btn btn-outline-secondary" do %>
+    会員一覧
+  <% end %>
+</li>
+<li class="mr-4 list-unstyled">
+  <%= link_to admin_path, class: "btn btn-outline-secondary"  do %>
+    注文履歴一覧
+  <% end %>
+</li>
+<li class="mr-4 list-unstyled">
+  <%= link_to admin_genres_path, class: "btn btn-outline-secondary" do %>
+    ジャンル一覧
+  <% end %>
+</li>
+<li class="mr-4 list-unstyled">
+  <%= link_to destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary" do %>
+    ログアウト
+  <% end %>
+</li>
