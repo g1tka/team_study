@@ -1,4 +1,4 @@
-class CartItem < ApplicationRecord
+class CartItem < ApplicationRecord    #これがクエリメソッドを使えるように継承関係している記述だった。
   belongs_to :customer
   belongs_to :item
 

@@ -50,7 +50,7 @@ class Public::OrdersController < ApplicationController
       @order_details.save!
     end
 
-    CartItem.destroy_all
+    CartItem.destroy_all    #もともとあるクエリメソッドのため、定義なし
     redirect_to thanks_orders_path
   end
 

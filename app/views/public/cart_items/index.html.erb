@@ -35,7 +35,7 @@
             </td>
             <td class="align-middle">
               <% subtotal = (cart_item.taxtotal * cart_item.amount).to_i %>
-              <h5><%= number_to_currency(subtotal, delimiter: ",", format: "%n") %></h5>
+              <h5><%= number_to_currency(subtotal, delimiter: ",", format: "%n") %></h5>    <!--ここで、カンマが入る記述方法-->
             </td>
             <td class="align-middle">
               <%= link_to "削除する", cart_item_path(cart_item), method: :delete, class: "btn btn-danger btn-md" %>
