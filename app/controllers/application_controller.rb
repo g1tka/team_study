@@ -1,5 +1,14 @@
 class ApplicationController < ActionController::Base
-  # before_action :authenticate_customer!, except: [:top, :about]
+  
+  # include Devise::Controllers::Helpers
+  # 本来はdeviseインストール時に記述され、以下四点を定義します。
+  # ・authenticate_user!	認証されているかどうかを確認し、認証されていない場合は認証失敗時のアクションを行う
+  #  （例:トップページにリダイレクトする）
+  # ・user_signed_in?	認証されているかどうか
+  # ・current_user	認証されているモデルのインスタンスを取得する
+  # ・user_session	認証用モデルのセッション情報にアクセスする
+  # しかしこのinclude～が無くとも、deviseの中の定義方法によりcurrent_customerなどが使えてしまいます。
+
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   private
